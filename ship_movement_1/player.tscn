@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://0ab5frbt0cuk"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_jtw1q"]
+[ext_resource type="Texture2D" uid="uid://d0qpx2657chue" path="res://sprites/rotations.png" id="2_2j2s4"]
+[ext_resource type="PackedScene" uid="uid://baeixacfkfprq" path="res://cannonball.tscn" id="2_o087h"]
+[ext_resource type="PackedScene" uid="uid://cutm6qw5lypk4" path="res://splash.tscn" id="3_ky18i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pwcr0"]
+size = Vector2(15, 30)
+
+[node name="Player" type="Area2D"]
+z_index = 1
+script = ExtResource("1_jtw1q")
+cannonball_scene = ExtResource("2_o087h")
+splash_scene = ExtResource("3_ky18i")
+
+[node name="Boat" type="Sprite2D" parent="."]
+position = Vector2(0, -0.5)
+texture = ExtResource("2_2j2s4")
+hframes = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 2)
+shape = SubResource("RectangleShape2D_pwcr0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="GunCooldown" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="GunCooldown" to="." method="_on_gun_cooldown_timeout"]

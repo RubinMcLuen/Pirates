@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cckl0sjlfk5m0"]
+
+[ext_resource type="Script" path="res://enemy.gd" id="1_aut3v"]
+[ext_resource type="Texture2D" uid="uid://d0qpx2657chue" path="res://sprites/rotations.png" id="2_lk0hm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_an21p"]
+size = Vector2(15, 26)
+
+[node name="Enemy" type="Area2D" groups=["enemies"]]
+script = ExtResource("1_aut3v")
+
+[node name="Boat" type="Sprite2D" parent="."]
+texture = ExtResource("2_lk0hm")
+hframes = 48
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 3)
+shape = SubResource("RectangleShape2D_an21p")
+
+[node name="GunCooldown" type="Timer" parent="."]
+one_shot = true

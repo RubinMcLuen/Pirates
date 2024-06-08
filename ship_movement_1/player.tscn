@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://0ab5frbt0cuk"]
+[gd_scene load_steps=7 format=3 uid="uid://0ab5frbt0cuk"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_jtw1q"]
 [ext_resource type="Texture2D" uid="uid://d0qpx2657chue" path="res://sprites/rotations.png" id="2_2j2s4"]
 [ext_resource type="PackedScene" uid="uid://baeixacfkfprq" path="res://cannonball.tscn" id="2_o087h"]
 [ext_resource type="PackedScene" uid="uid://cutm6qw5lypk4" path="res://splash.tscn" id="3_ky18i"]
+[ext_resource type="PackedScene" uid="uid://baudmwmarg6k2" path="res://hit.tscn" id="4_5u4l6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pwcr0"]
 size = Vector2(15, 30)
@@ -13,6 +14,7 @@ z_index = 1
 script = ExtResource("1_jtw1q")
 cannonball_scene = ExtResource("2_o087h")
 splash_scene = ExtResource("3_ky18i")
+hit_scene = ExtResource("4_5u4l6")
 
 [node name="Boat" type="Sprite2D" parent="."]
 position = Vector2(0, -0.5)

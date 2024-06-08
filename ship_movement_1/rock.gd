@@ -17,6 +17,8 @@ func _ready():
 	rock_sprite.frame = 0
 	explosion_sprite.visible = false
 	explosion_sprite.connect("animation_finished", Callable(self, "_on_explosion_finished"))
+	# Connect the area_entered signal to the _on_area_entered function
+	connect("area_entered", Callable(self, "_on_area_entered"))
 
 func take_hit():
 	if is_exploding:
@@ -41,3 +43,8 @@ func explode():
 
 func _on_explosion_finished():
 	queue_free()
+
+func _on_area_entered(area):
+	# Check if the colliding area is the player
+	if area.name == "Player":
+		explode()

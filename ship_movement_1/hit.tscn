@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://baudmwmarg6k2"]
+
+[ext_resource type="Texture2D" uid="uid://gy4tl0u1uere" path="res://sprites/hit.png" id="1_qgk4r"]
+[ext_resource type="Script" path="res://hit.gd" id="2_7i6ty"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lab1"]
+atlas = ExtResource("1_qgk4r")
+region = Rect2(0, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5bkt"]
+atlas = ExtResource("1_qgk4r")
+region = Rect2(3, 0, 3, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfjn6"]
+atlas = ExtResource("1_qgk4r")
+region = Rect2(6, 0, 3, 3)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vrcof"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lab1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5bkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfjn6")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 24.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_vrcof")
+animation = &"hit"
+script = ExtResource("2_7i6ty")
+
+[connection signal="animation_finished" from="." to="." method="_on_animation_finished"]

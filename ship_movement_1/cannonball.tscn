@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://baeixacfkfprq"]
+[gd_scene load_steps=6 format=3 uid="uid://baeixacfkfprq"]
 
 [ext_resource type="Script" path="res://cannonball.gd" id="1_bvra6"]
+[ext_resource type="PackedScene" uid="uid://cutm6qw5lypk4" path="res://splash.tscn" id="2_cap4i"]
 [ext_resource type="Texture2D" uid="uid://b78paael61is8" path="res://sprites/cannonball.png" id="2_uva1f"]
+[ext_resource type="PackedScene" uid="uid://baudmwmarg6k2" path="res://hit.tscn" id="3_cprvx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xts1r"]
 size = Vector2(1, 1)
 
 [node name="Cannonball" type="Area2D"]
 script = ExtResource("1_bvra6")
+splash_scene = ExtResource("2_cap4i")
+hit_scene = ExtResource("3_cprvx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_uva1f")

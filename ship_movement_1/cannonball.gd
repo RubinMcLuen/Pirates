@@ -1,8 +1,9 @@
 extends Area2D
 
-@export var speed = 100
-@export var max_distance = 50
+@export var speed = 200
+@export var max_distance = 80
 @export var splash_scene: PackedScene
+@export var hit_scene: PackedScene
 
 var velocity = Vector2.ZERO
 var distance_traveled = 0.0
@@ -24,15 +25,22 @@ func _process(delta: float):
 func _on_area_entered(area: Area2D):
 	if area.is_in_group("enemies"):
 		area.call("take_hit")
-		create_splash_effect()
+		create_hit_effect()
 		queue_free()
 
-func _on_visible_on_screen_notifier_2d_screen_exited():
-	create_splash_effect()
-	queue_free()
+#func _on_visible_on_screen_notifier_2d_screen_exited():
+	#create_splash_effect()
+	#queue_free()
 
 func create_splash_effect():
 	if splash_scene:
 		var splash = splash_scene.instantiate()
 		splash.position = position
 		get_tree().current_scene.add_child(splash)
+
+func create_hit_effect():
+	if hit_scene:
+		var hit = hit_scene.instantiate()
+		hit.position = position
+		get_tree().current_scene.add_child(hit)
+
